@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title></title>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.load.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../node_modules/font-awesome/css/font-awesome.css" />
+</head>
+<body>
+<events-app>
+    <i class="center-fix main-spinner fa fa-spin fa-spinner"></i>
+</events-app>
+
+<script>
+    (function(window) {
+        var environmentInfo = localStorage.getItem("bootConfig") || "";
+        if(environmentInfo) {
+            environmentInfo = JSON.parse(environmentInfo);
+        }
+        window.debug = environmentInfo.debug;
+        window.baseURL = environmentInfo.cdnURL || '';
+        window.environment = window.debug ? 'dev': 'production';
+        var appendScriptToHead = function(filePath, callback) {
+            var head = document.getElementsByTagName('head')[0];
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = filePath;
+            script.onload = callback || script.onload;
+            head.appendChild(script);
+        }
+        window.onload = function() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                    if(this.status == 200) {
+                        var imports = JSON.parse(xhttp.responseText);
+                        head.load(imports.jsAssets[window.environment], function () {
+                            if(typeof System !== "undefined") {
+                                if(window.debug) {
+                                    System.import('app/main.js').catch(function (err) {
+                                        console.error(err);
+                                    });
+                                }
+                            } else {
+                                // call app init failed
+                            }
+                        });
+                    } else {
+                        // call app init failed
+                    }
+                }
+            };
+            xhttp.open("GET", "/externalAssets.json", true);
+            xhttp.send();
+        };
+    })(window);
+</script>
+</body>
+</html>

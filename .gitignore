@@ -1,0 +1,14 @@
+.idea/
+.vscode
+/node_modules
+/bower_components
+/build
+/typings
+/dist
+.DS_Store
+/src/assets/styles/*.css
+/src/app/**/*.js
+/src/app/**/*.map
+/src/app/**/*.css
+*.iml
+*.log

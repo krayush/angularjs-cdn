@@ -1,0 +1,13 @@
+.rating-container {
+    width: 75px;
+}
+.rating-width-setter {
+    position: relative;
+    overflow: hidden;
+    i {
+        margin: 0 1px;
+    }
+    .rating-wrapper {
+        width: 75px;
+    }
+}

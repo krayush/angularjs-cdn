@@ -10,12 +10,12 @@ var rename = require('gulp-rename');
 
 require('@ngstarter/systemjs-extension')(config);
 gulp.task('build-prod', function (done) {
-    runSequence('build-systemjs', 'build-assets', 'build-prod-js', done);
+    runSequence('build-systemjs', 'build-assets', 'build-prod-js', 'external-css-prod', done);
 });
 
 // clean-app-ts, clean-app-sass will be run by tsc-app
 gulp.task('build-dev', function(done) {
-    runSequence(['clean-assets-sass', 'clean-app-map'], 'tsc-app', 'assets-sass', done);
+    runSequence(['clean-assets-sass', 'clean-app-map', 'external-css'], 'tsc-app', 'assets-sass', done);
 });
 
 /* Concat and minify/uglify all css and js */

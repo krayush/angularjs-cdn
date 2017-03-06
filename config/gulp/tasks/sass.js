@@ -4,6 +4,7 @@ var config = require('../config')();
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var cssnano = require('gulp-cssnano');
+var concat = require('gulp-concat');
 
 gulp.task('assets-sass', ['fonts', 'sprite'], function () {
     return gulp.src(config.assetsPath.styles + 'main.scss')
@@ -36,3 +37,17 @@ gulp.task('app-sass', ['clean-app-sass'], function () {
 gulp.task('watch-app-sass', function () {
     gulp.watch(config.app + '**/*.scss', ['tsc-app']);
 });
+
+gulp.task('external-css', function () {
+    return gulp.src(config.externalCSS)
+        .pipe(concat('library.css'))
+        .pipe(cssnano({
+            zindex: false
+        }))
+        .pipe(gulp.dest(config.src));
+});
+
+gulp.task('external-css-prod', ['external-css'], function () {
+    return gulp.src(config.src + 'library.css')
+        .pipe(gulp.dest(config.build.assetPath));
+})

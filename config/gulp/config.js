@@ -22,6 +22,10 @@ module.exports = function () {
         externalFonts = {
             'font-awesome': 'node_modules/font-awesome/fonts/*.*'
         },
+        // external css paths to files in node_modules folder
+        externalCSS = [
+            "node_modules/font-awesome/css/font-awesome.min.css"
+        ],
         build = {
             path: 'build/',
             app: 'build/app/',
@@ -59,6 +63,7 @@ module.exports = function () {
         app: app,
         tmpApp: tmpApp,
         externalFonts: externalFonts,
+        externalCSS: externalCSS,
         e2e: e2e,
         e2eConfig: e2eConfig,
         assets: assets,

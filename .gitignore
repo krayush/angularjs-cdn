@@ -12,3 +12,5 @@
 /src/app/**/*.css
 *.iml
 *.log
+/src/assets/fonts/
+/src/assets/styles/_icons.scss

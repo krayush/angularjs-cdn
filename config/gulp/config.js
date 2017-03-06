@@ -12,16 +12,20 @@ module.exports = function () {
         assetsPath = {
             styles: assets + 'styles/',
             images: assets + 'images/',
-            fonts: assets + 'fonts/'
+            fonts: assets + 'fonts/',
+            customIcons: assets + 'custom-icons/'
         },
         index = src + 'index.html',
         tsFiles = [
             app + '**/!(*.spec)+(.ts)'
         ],
+        externalFonts = {
+            'font-awesome': 'node_modules/font-awesome/fonts/*.*'
+        },
         build = {
             path: 'build/',
             app: 'build/app/',
-            fonts: 'build/fonts',
+            fonts: 'build/fonts/',
             assetPath: 'build/assets/',
             assets: {
                 lib: {
@@ -54,6 +58,7 @@ module.exports = function () {
         src: src,
         app: app,
         tmpApp: tmpApp,
+        externalFonts: externalFonts,
         e2e: e2e,
         e2eConfig: e2eConfig,
         assets: assets,

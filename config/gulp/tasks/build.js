@@ -18,16 +18,20 @@ gulp.task('build-dev', function(done) {
     runSequence(['clean-assets-sass', 'clean-app-map'], 'tsc-app', 'assets-sass', done);
 });
 
-/* Concat and minify/uglify all css, js, and copy fonts */
-gulp.task('build-assets', function () {
-    runSequence('assets-sass', 'fonts', function () {
-        gulp.src(config.src + 'favicon.ico').pipe(gulp.dest(config.build.path));
+/* Concat and minify/uglify all css and js */
+gulp.task('build-assets', ['assets-sass'], function () {
+    gulp.src(config.src + 'favicon.ico').pipe(gulp.dest(config.build.path));
+    // Moving images in assets to build directory
+    gulp.src(config.assetsPath.images + '**/*.*', {
+        base: config.assetsPath.images
+    }).pipe(gulp.dest(config.build.assetPath + 'images'));
 
-        // Moving images in assets to build directory
-        gulp.src(config.assetsPath.images + '**/*.*', {
-            base: config.assetsPath.images
-        }).pipe(gulp.dest(config.build.assetPath + 'images'));
-    });
+    // Moving main.css file to build directory
+    gulp.src(config.assetsPath.styles + 'main.css', {
+        base: config.assetsPath.styles
+    })
+        .pipe(rename('bundle.css'))
+        .pipe(gulp.dest(config.build.assetPath));
 });
 
 gulp.task('build-prod-js', function () {
@@ -46,15 +50,4 @@ gulp.task('build-prod-js', function () {
     gulp.src(config.app + 'bundle.js')
         .pipe(rename('app.js'))
         .pipe(gulp.dest(config.build.assetPath));
-});
-
-/* Copy fonts in packages */
-gulp.task('fonts', function () {
-    gulp.src(config.assetsPath.fonts + '**/*.*', {
-        base: config.assetsPath.fonts
-    }).pipe(gulp.dest(config.build.fonts));
-
-    gulp.src([
-        'node_modules/font-awesome/fonts/*.*'
-    ]).pipe(gulp.dest(config.build.fonts));
 });

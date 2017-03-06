@@ -3,7 +3,7 @@ var config = require('../config')();
 var del = require('del');
 
 /* Run all clean tasks */
-gulp.task('clean', ['clean-build', 'clean-app-ts', 'clean-assets-sass', 'clean-app-map', 'clean-app-sass']);
+gulp.task('clean', ['clean-build', 'clean-app-ts', 'clean-assets-sass', 'clean-app-map', 'clean-app-sass', 'clean-custom-fonts']);
 
 /* Clean build folder */
 gulp.task('clean-build', function () {
@@ -28,4 +28,9 @@ gulp.task('clean-app-map', function () {
 // Clean app sass compile
 gulp.task('clean-app-sass', function () {
     return del([config.app + '**/*.css']);
+});
+
+// Clean custom fonts
+gulp.task('clean-custom-fonts', function () {
+    return del([config.assetsPath.fonts + 'custom-fonts']);
 });

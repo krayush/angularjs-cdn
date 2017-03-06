@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/headjs/1.0.3/head.load.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../node_modules/font-awesome/css/font-awesome.css" />
 </head>
 <body>
 <events-app>
@@ -21,13 +20,14 @@
         window.debug = environmentInfo.debug;
         window.baseURL = environmentInfo.cdnURL || '';
         window.environment = window.debug ? 'dev': 'production';
-        var appendScriptToHead = function(filePath, callback) {
+        var appendStyleToHead = function(filePath) {
             var head = document.getElementsByTagName('head')[0];
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.src = filePath;
-            script.onload = callback || script.onload;
-            head.appendChild(script);
+            var sheet = document.createElement('link');
+            sheet.type = "text/css";
+            sheet.rel = "stylesheet";
+            sheet.media = 'all';
+            sheet.href = filePath;
+            head.appendChild(sheet);
         }
         window.onload = function() {
             var xhttp = new XMLHttpRequest();
@@ -36,15 +36,18 @@
                     if(this.status == 200) {
                         var imports = JSON.parse(xhttp.responseText);
                         head.load(imports.jsAssets[window.environment], function () {
-                            if(typeof System !== "undefined") {
-                                if(window.debug) {
+                            if(window.debug) {
+                                if(typeof System !== "undefined") {
                                     System.import('app/main.js').catch(function (err) {
                                         console.error(err);
                                     });
+                                } else {
+                                    // call app init failed
                                 }
-                            } else {
-                                // call app init failed
                             }
+                        });
+                        imports.cssAssets[window.environment].map(function (file) {
+                            appendStyleToHead(file);
                         });
                     } else {
                         // call app init failed

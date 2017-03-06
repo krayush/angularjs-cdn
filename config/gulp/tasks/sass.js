@@ -5,7 +5,7 @@ var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var cssnano = require('gulp-cssnano');
 
-gulp.task('assets-sass', ['fonts'], function () {
+gulp.task('assets-sass', ['fonts', 'sprite'], function () {
     return gulp.src(config.assetsPath.styles + 'main.scss')
         //.pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))

@@ -20,9 +20,8 @@ gulp.task('build-dev', function(done) {
 
 /* Concat and minify/uglify all css and js */
 gulp.task('build-assets', ['assets-sass'], function () {
-    gulp.src(config.src + 'favicon.ico').pipe(gulp.dest(config.build.path));
     // Moving images in assets to build directory
-    gulp.src(config.assetsPath.images + '**/*.*', {
+    gulp.src([config.assetsPath.images + '**/*.*', config.assetsPath.images + 'sprite-src/**/*.*'], {
         base: config.assetsPath.images
     }).pipe(gulp.dest(config.build.assetPath + 'images'));
 

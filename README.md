@@ -1,5 +1,5 @@
-# Angular 2 Starter    
-Angular 2 starter kit with ability to 
+# angularjs-cdn
+Angular 2 boilerplate with ability to 
 * start a local CDN server, 
 * generate custom fonts using webfont,
 * generate bundles for production environment using SystemJS

@@ -24,7 +24,7 @@ module.exports = function () {
         },
         // external css paths to files in node_modules folder
         externalCSS = [
-            "node_modules/font-awesome/css/font-awesome.min.css"
+
         ],
         build = {
             path: 'build/',

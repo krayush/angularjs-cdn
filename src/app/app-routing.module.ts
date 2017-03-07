@@ -15,12 +15,12 @@ const appRoutes: Routes = [{
     outlet: 'popup'
 }, {
     path: 'crisis-center',
-    loadChildren: 'app/crisis-center/crisis-center.module',
+    loadChildren: 'app/components/crisis-center/crisis-center.module#CrisisCenterModule',
     canLoad: [AuthGuard]
 }, {
     path: 'events',
-    loadChildren: 'app/events/events.module',
-    data: {preload: true}
+    loadChildren: 'app/components/events/events.module#EventsAppModule',
+    //data: {preload: true}
 }, {
     path: '**', component: ModuleNotFoundComponent
 }];

@@ -12,12 +12,12 @@ import { ModuleNotFoundComponent } from './components/modulenotfound/module-not-
 import { MessageComponent } from './components/message/message.component';
 import { DashboardModule } from './components/dashboard/dashboard.module';
 import { CustomPreloadStrategy } from './preload-strategy/custom-preload-strategy';
-import { CrisisCenterModule } from './components/crisis-center/crisis-center.module'
+//import { CrisisCenterModule } from './components/crisis-center/crisis-center.module'
 
 @NgModule({
     imports:      [ BrowserModule, CommonModule, FormsModule, HttpModule,
         DashboardModule,
-        CrisisCenterModule,
+        //CrisisCenterModule,
         AppRoutingModule
     ],
     declarations: [ AppComponent, ModuleNotFoundComponent, MessageComponent],

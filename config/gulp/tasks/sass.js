@@ -52,9 +52,9 @@ gulp.task('external-css-prod', function () {
             .pipe(cssnano({
                 zindex: false
             }))
-            .pipe(gulp.dest(config.build.assetPath));
+            .pipe(gulp.dest(config.build.assetPath + "css/"));
     } else {
         return file('library.css', "", { src: true })
-            .pipe(gulp.dest(config.build.assetPath));
+            .pipe(gulp.dest(config.build.assetPath + "css/"));
     }
 });

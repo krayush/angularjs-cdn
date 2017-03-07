@@ -10,7 +10,7 @@ var rename = require('gulp-rename');
 
 require('@ngstarter/systemjs-extension')(config);
 gulp.task('build-prod', function (done) {
-    runSequence('build-systemjs', 'build-assets', 'build-prod-js', 'external-css-prod', done);
+    runSequence('clean-build', 'build-systemjs', 'build-assets', 'build-prod-js', 'external-css-prod', done);
 });
 
 // clean-app-ts, clean-app-sass will be run by tsc-app
@@ -30,7 +30,7 @@ gulp.task('build-assets', ['assets-sass'], function () {
         base: config.assetsPath.styles
     })
         .pipe(rename('app.css'))
-        .pipe(gulp.dest(config.build.assetPath));
+        .pipe(gulp.dest(config.build.assetPath + "css/"));
 });
 
 gulp.task('build-prod-js', function () {
@@ -45,8 +45,8 @@ gulp.task('build-prod-js', function () {
         .pipe(uglify())
         .pipe(minify())
         .pipe(rename('lib.js')) // Step required for removing the min file
-        .pipe(gulp.dest(config.build.assetPath));
+        .pipe(gulp.dest(config.build.assetPath + "js/"));
     gulp.src(config.app + 'bundle.js')
         .pipe(rename('app.js'))
-        .pipe(gulp.dest(config.build.assetPath));
+        .pipe(gulp.dest(config.build.assetPath + "js/"));
 });

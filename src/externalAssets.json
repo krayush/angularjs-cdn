@@ -9,8 +9,8 @@
             "src/systemjs.conf.js#buildRemove"
         ],
         "production": [
-            "build/assets/lib.js",
-            "build/assets/app.js"
+            "build/assets/js/lib.js",
+            "build/assets/js/app.js"
         ]
     },
     "cssAssets": {
@@ -18,8 +18,8 @@
             "src/assets/styles/main.css#buildRemove"
         ],
         "production": [
-            "build/assets/app.css",
-            "build/assets/library.css"
+            "build/assets/css/app.css",
+            "build/assets/css/library.css"
         ]
     }
 }

@@ -25,7 +25,7 @@ module.exports = function () {
         build = {
             path: 'build/',
             app: 'build/app/',
-            fonts: 'build/fonts/',
+            fonts: 'build/assets/fonts/',
             assetPath: 'build/assets/',
             assets: {
                 lib: {

@@ -37,7 +37,9 @@ npm install
 ```
 
 ### Generate Build
-For generating a build directory with all the app files bundled, run:
+For generating a build directory with all the app files bundled, run this command.  
+Note: The build directory is neither under watch and nor is any file updated in build directory on any change.
+Run npm run build for refreshing the build directory completely
 ```bash
 npm run build
 ```

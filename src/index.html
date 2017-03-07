@@ -17,9 +17,12 @@
         if(environmentInfo) {
             environmentInfo = JSON.parse(environmentInfo);
         }
+
         window.debug = environmentInfo.debug;
-        window.baseURL = environmentInfo.cdnURL || '';
+        window.remoteCDNUrl = environmentInfo.remoteCDNUrl || '/';
+        window.remoteServerUrl = environmentInfo.remoteServerUrl || '/';
         window.environment = window.debug ? 'dev': 'production';
+
         var appendStyleToHead = function(filePath) {
             var head = document.getElementsByTagName('head')[0];
             var sheet = document.createElement('link');
@@ -35,7 +38,11 @@
                 if (this.readyState == 4) {
                     if(this.status == 200) {
                         var imports = JSON.parse(xhttp.responseText);
-                        head.load(imports.jsAssets[window.environment], function () {
+                        var jsFiles = imports.jsAssets[window.environment];
+                        jsFiles = jsFiles.map(function(item) {
+                            return window.remoteCDNUrl + item;
+                        });
+                        head.load(jsFiles, function () {
                             if(window.debug) {
                                 if(typeof System !== "undefined") {
                                     System.import('app/main.js').catch(function (err) {
@@ -47,7 +54,7 @@
                             }
                         });
                         imports.cssAssets[window.environment].map(function (file) {
-                            appendStyleToHead(file);
+                            appendStyleToHead(window.remoteCDNUrl + file);
                         });
                     } else {
                         // call app init failed

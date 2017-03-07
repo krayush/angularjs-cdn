@@ -1,24 +1,25 @@
 {
-  "jsAssets": {
-    "dev": [
-      "node_modules/jquery/dist/jquery.js",
-      "node_modules/bootstrap-sass/assets/javascripts/bootstrap.js",
-      "node_modules/core-js/client/shim.min.js",
-      "node_modules/zone.js/dist/zone.js",
-      "node_modules/systemjs/dist/system.js",
-      "src/systemjs.conf.js#buildRemove"
-    ],
-    "production": [
-      "build/assets/lib.js",
-      "build/assets/app.js"
-    ]
-  },
-  "cssAssets": {
-    "production": [
-      "build/assets/bundle.css"
-    ],
-    "dev": [
-      "src/assets/styles/main.css"
-    ]
-  }
+    "jsAssets": {
+        "dev": [
+            "node_modules/jquery/dist/jquery.js",
+            "node_modules/bootstrap-sass/assets/javascripts/bootstrap.js",
+            "node_modules/core-js/client/shim.min.js",
+            "node_modules/zone.js/dist/zone.js",
+            "node_modules/systemjs/dist/system.js",
+            "src/systemjs.conf.js#buildRemove"
+        ],
+        "production": [
+            "build/assets/lib.js",
+            "build/assets/app.js"
+        ]
+    },
+    "cssAssets": {
+        "dev": [
+            "src/assets/styles/main.css#buildRemove"
+        ],
+        "production": [
+            "build/assets/app.css",
+            "build/assets/library.css"
+        ]
+    }
 }

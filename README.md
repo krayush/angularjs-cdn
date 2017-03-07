@@ -85,12 +85,10 @@ To enable debug mode: add this json config in localStorage.
 * remoteServerUrl: is where the ajax requests hit in case you wish to set it/override it.  
 * remoteCDNUrl: is where the requests for js/css/html goes in case you wish to set it/override it.
 ```json
-{
-  "bootConfig": {
-    "debug": true,
-    "remoteCDNUrl": "http://localhost:3000/build/",
-    "remoteServerUrl": "http://test.com:8080"
-  }
+"bootConfig": {
+  "debug": true,
+  "remoteCDNUrl": "http://localhost:3000/build/",
+  "remoteServerUrl": "http://test.com:8080"
 }
 ```
 
@@ -98,7 +96,7 @@ To enable debug mode: add this json config in localStorage.
 This file is the first file fetched by index.html and it contains the list of assets.<br/>
 
 For jsAssets, all the dev section will be compiled to get lib.js in build.  
-For cssAssets, generate all bundles via gulp and just mention paths here.<br/>
+For cssAssets, all the dev section will be compiled to get library.css in build.<br/>
 
 Note: To exclude any file from build, just add #buildRemove  
 Note: Don't delete this file as otherwise no static resources will load.
@@ -115,11 +113,12 @@ Note: Don't delete this file as otherwise no static resources will load.
     ]
   },
   "cssAssets": {
-    "production": [
-      "build/assets/bundle.css"
-    ],
     "dev": [
-      "src/assets/styles/main.css"
+      "src/assets/styles/main.css#buildRemove"
+    ],
+    "production": [
+      "build/assets/app.css",
+      "build/assets/library.css",
     ]
   }
 }

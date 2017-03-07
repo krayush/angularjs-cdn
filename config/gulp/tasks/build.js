@@ -15,7 +15,7 @@ gulp.task('build-prod', function (done) {
 
 // clean-app-ts, clean-app-sass will be run by tsc-app
 gulp.task('build-dev', function(done) {
-    runSequence(['clean-assets-sass', 'clean-app-map', 'external-css'], 'tsc-app', 'assets-sass', done);
+    runSequence(['clean-assets-sass', 'clean-app-map'], 'tsc-app', 'assets-sass', done);
 });
 
 /* Concat and minify/uglify all css and js */
@@ -29,7 +29,7 @@ gulp.task('build-assets', ['assets-sass'], function () {
     gulp.src(config.assetsPath.styles + 'main.css', {
         base: config.assetsPath.styles
     })
-        .pipe(rename('bundle.css'))
+        .pipe(rename('app.css'))
         .pipe(gulp.dest(config.build.assetPath));
 });
 

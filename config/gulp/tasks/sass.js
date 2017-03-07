@@ -5,6 +5,8 @@ var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var cssnano = require('gulp-cssnano');
 var concat = require('gulp-concat');
+var autoprefixer = require('gulp-autoprefixer');
+var file = require('gulp-file');
 
 gulp.task('assets-sass', ['fonts', 'sprite'], function () {
     return gulp.src(config.assetsPath.styles + 'main.scss')
@@ -27,6 +29,7 @@ gulp.task('app-sass', ['clean-app-sass'], function () {
     })
         // .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer())
         .pipe(cssnano({
             zindex: false
         }))
@@ -38,16 +41,20 @@ gulp.task('watch-app-sass', function () {
     gulp.watch(config.app + '**/*.scss', ['tsc-app']);
 });
 
-gulp.task('external-css', function () {
-    return gulp.src(config.externalCSS)
-        .pipe(concat('library.css'))
-        .pipe(cssnano({
-            zindex: false
-        }))
-        .pipe(gulp.dest(config.src));
+gulp.task('external-css-prod', function () {
+    var externalAssets = require('../../../src/externalAssets.json');
+    var filteredAssets = externalAssets.cssAssets.dev.filter(function(item) {
+        return item.indexOf("#buildRemove") === -1;
+    });
+    if(filteredAssets.length) {
+        return gulp.src(filteredAssets)
+            .pipe(concat('library.css'))
+            .pipe(cssnano({
+                zindex: false
+            }))
+            .pipe(gulp.dest(config.build.assetPath));
+    } else {
+        return file('library.css', "", { src: true })
+            .pipe(gulp.dest(config.build.assetPath));
+    }
 });
-
-gulp.task('external-css-prod', ['external-css'], function () {
-    return gulp.src(config.src + 'library.css')
-        .pipe(gulp.dest(config.build.assetPath));
-})

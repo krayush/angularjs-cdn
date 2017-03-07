@@ -5,7 +5,7 @@ import { EventsRoutingModule } from './events-routing.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { EventFilterPipe } from './event-filter.pipe';
-import { RatingComponent } from '../shared/rating/rating.component';
+import { RatingComponent } from '../../shared/rating/rating.component';
 
 @NgModule({
     imports: [

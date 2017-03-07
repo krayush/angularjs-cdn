@@ -2,7 +2,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import 'rxjs/add/operator/switchMap';
 import { Observable } from 'rxjs/Observable';
-import { slideInDownAnimation } from '../../animations';
+import { slideInDownAnimation } from '../../../animations/animations';
 @Component ({
     template: '<div>DETAIL {{dataId}}</div>',
     // way to define animations

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EventListService } from '../../services/event-list.service';
+import { EventListService } from '../../../services/event-list.service';
 import { Router } from '@angular/router';
 
 @Component({

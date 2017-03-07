@@ -4,7 +4,7 @@ import { CrisisCenterComponent } from './crisis-center.component';
 import { CrisisCenterHomeComponent } from './crisis-center-home.component';
 import { CrisisListComponent } from './crisis-list.component';
 import { CrisisDetailComponent } from './crisis-detail.component';
-import { AuthGuard } from '../auth-guard.service';
+import { AuthGuard } from '../../gaurds/auth-guard.service';
 
 const crisisCenterRoutes: Routes = [{
     path: '',

@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 
 export class EventListService {
-    private heroesUrl = '/data.json';  // URL to web API
+    private heroesUrl = 'externalResources/data.json';  // URL to web API
     constructor (private http: Http) {}
     getEvents (): Observable<any[]> {
         return this.http.get(this.heroesUrl)

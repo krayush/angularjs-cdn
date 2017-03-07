@@ -82,7 +82,8 @@ module.exports = function () {
                     routes: {
                         "/node_modules": "node_modules",
                         "/src": "src",
-                        "/build": "build"
+                        "/build": "build",
+                        "/externalResources": "externalResources"
                     }
                 },
                 files: [

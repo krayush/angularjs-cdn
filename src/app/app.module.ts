@@ -8,11 +8,11 @@ import { HttpModule } from '@angular/http';
 import 'rxjs/Rx';
 
 import { AppRoutingModule } from './app-routing.module';
-import { ModuleNotFoundComponent } from './modulenotfound/module-not-found.component';
-import { MessageComponent } from './message/message.component';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { CustomPreloadStrategy } from './custom-preload-strategy';
-import { CrisisCenterModule } from './crisis-center/crisis-center.module'
+import { ModuleNotFoundComponent } from './components/modulenotfound/module-not-found.component';
+import { MessageComponent } from './components/message/message.component';
+import { DashboardModule } from './components/dashboard/dashboard.module';
+import { CustomPreloadStrategy } from './preload-strategy/custom-preload-strategy';
+import { CrisisCenterModule } from './components/crisis-center/crisis-center.module'
 
 @NgModule({
     imports:      [ BrowserModule, CommonModule, FormsModule, HttpModule,

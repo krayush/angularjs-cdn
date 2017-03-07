@@ -1,9 +1,9 @@
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { ModuleNotFoundComponent } from './modulenotfound/module-not-found.component';
-import { AuthGuard } from './auth-guard.service';
-import { MessageComponent } from './message/message.component';
-import { CustomPreloadStrategy } from './custom-preload-strategy';
+import { ModuleNotFoundComponent } from './components/modulenotfound/module-not-found.component';
+import { AuthGuard } from './gaurds/auth-guard.service';
+import { MessageComponent } from './components/message/message.component';
+import { CustomPreloadStrategy } from './preload-strategy/custom-preload-strategy';
 
 const appRoutes: Routes = [{
     path: '',

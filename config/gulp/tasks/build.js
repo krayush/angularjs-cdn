@@ -8,7 +8,8 @@ var concat = require('gulp-concat');
 var minify = require('gulp-minify');
 var rename = require('gulp-rename');
 
-require('@ngstarter/systemjs-extension')(config);
+// require('@ngstarter/systemjs-extension')(config);
+require('../builderConfig')(config);
 gulp.task('build-prod', function (done) {
     runSequence('clean-build', 'build-systemjs', 'build-assets', 'build-prod-js', 'external-css-prod', done);
 });

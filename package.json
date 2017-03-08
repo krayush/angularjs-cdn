@@ -30,7 +30,6 @@
     "@angular/platform-browser": "~2.4.3",
     "@angular/platform-browser-dynamic": "~2.4.3",
     "@angular/router": "~3.4.3",
-    "@ngstarter/systemjs-extension": "1.0.0-rc.4",
     "@types/core-js": "^0.9.35",
     "@types/lodash": "^4.14.50",
     "@types/node": "^7.0.5",

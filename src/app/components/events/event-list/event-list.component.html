@@ -1,0 +1,37 @@
+<div class="search-container">
+    <input [(ngModel)]="searchString" placeholder="SEARCH"/>
+</div>
+<button (click)="toggleImage()">
+    {{showImage? 'HIDE': 'SHOW'}}
+</button>
+<table cellpadding="10">
+    <thead>
+        <tr>
+            <th *ngIf="showImage">EVENT NAME</th>
+            <th>EVENT CODE</th>
+            <th>EVENT FEE</th>
+            <th>EVENT RATING</th>
+            <th>EVENT CAPACITY</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let event of eventList | eventFilter: searchString">
+            <td *ngIf="showImage">
+                <a [routerLink]="['/events',{a:32,b:3222,c:322}]"
+                   [queryParams]="{ foo: 'foo', bar: 'bar' }" routerLinkActive="active"
+                   routerLinkActiveOptions="{exact:true}">{{event.name | lowercase | uppercase}}</a>
+            </td>
+            <td>
+                <div (click)="onSelect($event, event.code)">{{event.code}}</div>
+                <a hidden routerLink="/events/{{event.code}}" routerLinkActive="active">{{event.code}}</a>
+            </td>
+            <td>{{event.fee | currency: 'INR':true:'1.2-2'}}</td>
+            <td>
+                <my-rating [rating]='event.rating' (ratingClicked)="ratingClicked($event)"></my-rating>
+            </td>
+            <td>{{event.capacity}}
+                <a [routerLink]="[{ outlets: { popup: ['compose'] } }]">Contact</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

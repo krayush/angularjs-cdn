@@ -47,6 +47,6 @@ gulp.task('custom-fonts', ['clean-custom-fonts'], function() {
 });
 
 // Task for generating fonts for both dev and prod environment
-gulp.task('fonts', ['external-fonts-dev', 'external-fonts-prod', 'custom-fonts'], function() {
-    runSequence('app-fonts');
+gulp.task('fonts', ['external-fonts-dev', 'external-fonts-prod'], function(done) {
+    runSequence('custom-fonts', 'app-fonts', done);
 });

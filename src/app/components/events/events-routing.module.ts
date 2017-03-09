@@ -6,7 +6,6 @@ import { ModuleNotFoundComponent } from '../modulenotfound/module-not-found.comp
 
 const appRoutes: Routes = [{
     path: "",
-    //data: {preload: true}, // This is static info
     children: [{
         path: '',
         component: EventListComponent

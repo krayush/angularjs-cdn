@@ -2,7 +2,7 @@ var runSequence = require('run-sequence');
 var envConfig = require('../utils/env');
 if (envConfig.ENV === envConfig.ENVS.DEV) {
     var gulp = require('gulp');
-    var config = require('../config')();
+    var config = require('../config/config')();
     var bs = require("browser-sync");
     var dashboard = require('../utils/dashboard');
 

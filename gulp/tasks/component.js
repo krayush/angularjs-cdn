@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var path = require('path');
-var config = require('../config')();
+var config = require('../config/config')();
 
 // Simply run tsc-app when any change is encountered in html or scss file
 gulp.task('watch-html', function () {

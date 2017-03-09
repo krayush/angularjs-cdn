@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var config = require('../config')();
+var config = require('../config/config')();
 var del = require('del');
 
 /* Run all clean tasks */

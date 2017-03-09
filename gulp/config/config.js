@@ -1,12 +1,10 @@
-var envConfig = require('./utils/env');
+var envConfig = require('../utils/env');
 
 module.exports = function () {
     var root = '',
         src = root + 'src/',
         config = root + 'config/',
         app = src + 'app/',
-        // required as systemjs-extension uses tmpApp
-        tmpApp = src + 'app/',
         e2e = root + 'e2e/',
         assets = src + 'assets/',
         assetsPath = {
@@ -57,7 +55,6 @@ module.exports = function () {
         config: config,
         src: src,
         app: app,
-        tmpApp: tmpApp,
         externalFonts: externalFonts,
         e2e: e2e,
         e2eConfig: e2eConfig,
@@ -90,7 +87,6 @@ module.exports = function () {
                     src + "index.html",
                     src + "systemjs.conf.js",
                     assetsPath.styles + "main.css",
-                    tmpApp + "**/*.js",
                     app + "**/*.css",
                     app + "**/*.html"
                 ]

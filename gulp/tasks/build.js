@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
-var config = require('../config')();
+var config = require('../config/config')();
 var sourcemaps = require('gulp-sourcemaps');
 var rev = require('gulp-rev');
 var uglify = require('gulp-uglify');
@@ -8,8 +8,6 @@ var concat = require('gulp-concat');
 var minify = require('gulp-minify');
 var rename = require('gulp-rename');
 
-// require('@ngstarter/systemjs-extension')(config);
-require('../builderConfig')();
 gulp.task('build-prod', function (done) {
     runSequence('clean-build', 'build-systemjs', 'build-assets', 'build-prod-js', 'external-css-prod', done);
 });
@@ -36,7 +34,7 @@ gulp.task('build-assets', ['assets-sass'], function () {
 
 gulp.task('build-prod-js', function () {
     // Causes of error in this step: File specified in json file missing or invalid json file
-    var externalAssets = require('../../../src/externalAssets.json');
+    var externalAssets = require('../../src/externalAssets.json');
     // Removing #buildRemove files
     var filteredAssets = externalAssets.jsAssets.dev.filter(function(item) {
         return item.indexOf("#buildRemove") === -1;

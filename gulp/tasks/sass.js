@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var config = require('../config')();
+var config = require('../config/config')();
 var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var cssnano = require('gulp-cssnano');
@@ -42,7 +42,7 @@ gulp.task('watch-app-sass', function () {
 });
 
 gulp.task('external-css-prod', function () {
-    var externalAssets = require('../../../src/externalAssets.json');
+    var externalAssets = require('../../src/externalAssets.json');
     var filteredAssets = externalAssets.cssAssets.dev.filter(function(item) {
         return item.indexOf("#buildRemove") === -1;
     });

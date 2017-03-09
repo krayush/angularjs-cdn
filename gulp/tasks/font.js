@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var config = require('../config')();
+var config = require('../config/config')();
 var _ = require('lodash');
 var runSequence = require('run-sequence');
 var iconFontCSS = require('gulp-iconfont-css');

@@ -7,7 +7,6 @@ var colorMap = {
     'production': 'bgCyan'
 };
 color = colorMap[envConfig.ENV] || 'bgMagenta';
-
 var StarterDashboard = {
     show: function() {
         console.log('============ \' Project Name \' Starter ============');
@@ -16,5 +15,4 @@ var StarterDashboard = {
         console.log('====================================================');
     }
 };
-
 module.exports = StarterDashboard;

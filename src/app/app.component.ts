@@ -8,8 +8,5 @@ import { Router } from '@angular/router';
 })
 
 export class AppComponent {
-    constructor(router: Router) {
-        // console.error(router.config);
-    }
     title:string = 'Events App';
 }

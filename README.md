@@ -70,7 +70,7 @@ For adding external scss files to main.css, add them to
 For adding external css files to library.css, add them to externalCSS array under and generate build
 ```directory
  /
-   |- config/config.js
+   |- gulp/config/config.js
 ```
 
 ### Adding a icon
@@ -128,5 +128,5 @@ Note: Don't delete this file as otherwise no static resources will load.
 For adding external fonts, add them to externalFonts array under
 ```directory
  /
-   |- config/config.js
+   |- gulp/config/config.js
 ```

@@ -130,3 +130,20 @@ For adding external fonts, add them to externalFonts array under
  /
    |- gulp/config/config.js
 ```
+
+### Lazy loading of Modules
+For lazy loading modules, follow these steps:
+1. Generate a separate bundle for module. To do this add following config to config.js
+```config
+ lazyLoadModules = [{
+     bundleName: 'events.bundle.js',
+     entryPoint: 'components/events/events.module.js'
+ }]
+```
+2. For delegating requests to that bundle we need to add a entry to the bundles in systemjs.conf.js
+```config
+ config.bundles = {
+     'build/js/app.bundle.js': ['app/main.js'],
+     'build/js/events.bundle.js': ['app/components/events/events.module.js']
+ };
+```

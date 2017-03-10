@@ -1,18 +1,9 @@
-/*
- * This config is only used during development and build phase only
- * It will not be available on production
- *
- */
-
 (function(global) {
-    // ENV
     global.ENV = global.ENV || 'development';
-
     // map tells the System loader where to look for things
     var map = {
         'app': 'src/app'
     };
-
     // packages tells the System loader how to load when no filename and/or no extension
     var packages = {
         'app': {
@@ -22,23 +13,11 @@
             defaultExtension: 'js'
         }
     };
-
     // List npm packages here
     var npmPackages = [
         '@angular',
-        'rxjs',
-        'lodash'
+        'rxjs'
     ];
-
-    // Add package entries for packages that expose barrels using index.js
-    var packageNames = [
-        // App barrels
-        'app/shared',
-
-        // 3rd party barrels
-        'lodash'
-    ];
-
     // Add package entries for angular packages
     var ngPackageNames = [
         'common',
@@ -50,28 +29,23 @@
         'platform-browser-dynamic',
         'router'
     ];
-
     npmPackages.forEach(function (pkgName) {
         map[pkgName] = 'node_modules/' + pkgName;
     });
-
-    packageNames.forEach(function(pkgName) {
-        packages[pkgName] = { main: 'index.js', defaultExtension: 'js' };
-    });
-
     ngPackageNames.forEach(function(pkgName) {
         map['@angular/' + pkgName] = 'node_modules/@angular/' + pkgName +
             '/bundles/' + pkgName + '.umd.js';
     });
-
     var config = {
         map: map,
         packages: packages
     };
-
-    // filterSystemConfig - index.html's chance to modify config before we register it.
-    if (global.filterSystemConfig) { global.filterSystemConfig(config); }
-
+    if(this.environment === "production") {
+        System.defaultJSExtensions = true;
+        config.bundles = {
+            'build/js/app.bundle.js': ['app/main.js'],
+            'build/js/events.bundle.js': ['app/components/events/events.module.js']
+        };
+    }
     System.config(config);
-
 })(this);

@@ -40,11 +40,14 @@ gulp.task('build-prod-js', function () {
         return item.indexOf("#buildRemove") === -1;
     });
     gulp.src(filteredAssets)
-        .pipe(concat('lib.js'))
+        .pipe(concat('externalLib.bundle.js'))
         .pipe(uglify())
         .pipe(minify())
-        .pipe(rename('lib.js')) // Step required for removing the min file
+        .pipe(rename('externalLib.bundle.js')) // Step required for removing the min file
         .pipe(gulp.dest(config.build.path + "js/"));
-    gulp.src(config.src + 'systemjs.prod.js')
+    gulp.src(config.src + 'systemjs.conf.js')
+        .pipe(uglify())
+        .pipe(minify())
+        .pipe(rename('systemjs.conf.js'))
         .pipe(gulp.dest(config.build.path + "js/"));
 });

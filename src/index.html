@@ -43,30 +43,12 @@
                             return window.remoteCDNUrl + item;
                         });
                         head.load(jsFiles, function () {
-                            if(window.debug) {
-                                if(typeof System !== "undefined") {
-                                    System.import('app/main.js').catch(function (err) {
-                                        console.error(err);
-                                    });
-                                    //SystemJS.import("build/js/crisisModule.js");
-                                    //SystemJS.import("build/js/eventsModule.js");
-                                    //var array1 = [
-                                        //'src/app/shared/rating/rating.component.js',
-//                                        'src/app/services/event-list.service.js',
-//                                        'src/app/components/events/event-list/event-list.component.js',
-//                                        "src/app/animations/animations.js",
-//                                        "src/app/components/events/event-detail/event-detail.component.js",
-//                                        "src/app/components/events/events-routing.module.js",
-//                                        "src/app/components/events/event-filter.pipe.js",
-                                        //'src/app/components/events/events.module.js'
-                                    //];
-//                                    array1.map(function (item) {
-//                                        SystemJS.import(item);
-//                                    })
-
-                                } else {
-                                    // call app init failed
-                                }
+                            if(typeof System !== "undefined") {
+                                System.import('app/main.js').catch(function (err) {
+                                    console.error(err);
+                                });
+                            } else {
+                                // call app init failed
                             }
                         });
                         imports.cssAssets[window.environment].map(function (file) {

@@ -5,7 +5,6 @@ module.exports = function () {
         src = root + 'src/',
         config = root + 'config/',
         app = src + 'app/',
-        e2e = root + 'e2e/',
         assets = src + 'assets/',
         assetsPath = {
             styles: assets + 'styles/',
@@ -17,6 +16,10 @@ module.exports = function () {
         tsFiles = [
             app + '**/!(*.spec)+(.ts)'
         ],
+        lazyLoadModules = [{
+            bundleName: 'events.bundle.js',
+            entryPoint: 'components/events/events.module.js'
+        }],
         externalFonts = {
             'font-awesome': 'node_modules/font-awesome/fonts/*.*'
         },
@@ -33,10 +36,6 @@ module.exports = function () {
             }
         };
 
-    var e2eConfig = {
-        seleniumTarget: 'http://127.0.0.1:3000'
-    };
-
     var systemJs = {
         builder: {
             normalize: true,
@@ -49,25 +48,21 @@ module.exports = function () {
             }
         }
     };
-
     var gulpConfig = {
         root: root,
         config: config,
         src: src,
         app: app,
         externalFonts: externalFonts,
-        e2e: e2e,
-        e2eConfig: e2eConfig,
         assets: assets,
         index: index,
         build: build,
         assetsPath: assetsPath,
+        lazyLoadModules: lazyLoadModules,
         tsFiles: tsFiles,
         systemJs: systemJs
     };
-
-    if (envConfig.ENV === envConfig.ENVS.DEV)
-    {
+    if (envConfig.ENV === envConfig.ENVS.DEV) {
         var historyApiFallback = require('connect-history-api-fallback');
         var browserSync = {
             dev: {
@@ -99,9 +94,7 @@ module.exports = function () {
                 }
             }
         };
-
         gulpConfig.browserSync = browserSync;
     }
-
     return gulpConfig;
 };

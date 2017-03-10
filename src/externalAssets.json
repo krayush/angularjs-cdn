@@ -9,8 +9,10 @@
             "src/systemjs.conf.js#buildRemove"
         ],
         "production": [
-            "build/js/lib.js",
-            "build/js/appBundle.js"
+            "build/js/externalLib.bundle.js",
+            "build/js/systemjs.conf.js",
+            "build/js/appLib.bundle.js",
+            "build/js/app.bundle.js"
         ]
     },
     "cssAssets": {

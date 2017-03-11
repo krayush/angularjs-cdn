@@ -12,6 +12,7 @@ import { ModuleNotFoundComponent } from './components/modulenotfound/module-not-
 import { MessageComponent } from './components/message/message.component';
 import { DashboardModule } from './components/dashboard/dashboard.module';
 import { CustomPreloadStrategy } from './preload-strategy/custom-preload-strategy';
+import {DebugComponent} from "./components/debug/debug.component";
 //import { CrisisCenterModule } from './components/crisis-center/crisis-center.module'
 
 @NgModule({
@@ -20,7 +21,7 @@ import { CustomPreloadStrategy } from './preload-strategy/custom-preload-strateg
         //CrisisCenterModule,
         AppRoutingModule
     ],
-    declarations: [ AppComponent, ModuleNotFoundComponent, MessageComponent],
+    declarations: [ AppComponent, ModuleNotFoundComponent, MessageComponent, DebugComponent],
     bootstrap:    [ AppComponent ],
     providers: [ CustomPreloadStrategy ]
     // entryComponents: [ DashboardModule ]

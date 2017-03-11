@@ -5,7 +5,7 @@
   "description": "Angular 2 Starter with extensible features",
   "scripts": {
     "clean": "gulp clean",
-    "start": "gulp start-dev-server",
+    "start": "npm run build && npm run build-dev && gulp start-dev-server",
     "build": "gulp build-prod",
     "build-dev": "gulp build-dev"
   },
@@ -75,6 +75,7 @@
     "gulp.spritesmith": "^6.3.0",
     "merge-stream": "^1.0.1",
     "run-sequence": "~1.2.2",
+    "systemjs-builder": "^0.16.3",
     "ts-node": "^2.0.0",
     "vinyl-buffer": "^1.0.0"
   }

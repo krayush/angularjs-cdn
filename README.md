@@ -45,7 +45,7 @@ npm run build
 ```
 
 ### Generating only dev build
-Previous command will generate both dev and prod build. You can create only dev build by running:
+Previous command will generate only prod build. You can create only dev build by running:
 ```bash
 npm run build-dev
 ```

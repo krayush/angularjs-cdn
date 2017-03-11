@@ -20,7 +20,7 @@ gulp.task('external-fonts-prod', function () {
 
 // Don't clean app-fonts as it might contain developer added fonts
 gulp.task('app-fonts', function () {
-    gulp.src(config.assetsPath.fonts + '**/*.*', {
+    return gulp.src(config.assetsPath.fonts + '**/*.*', {
         base: config.assetsPath.fonts
     }).pipe(gulp.dest(config.build.fonts));
 });
@@ -48,5 +48,5 @@ gulp.task('custom-fonts', ['clean-custom-fonts'], function() {
 
 // Task for generating fonts for both dev and prod environment
 gulp.task('fonts', ['external-fonts-dev', 'external-fonts-prod'], function(done) {
-    runSequence('custom-fonts', 'app-fonts', done);
+    return runSequence('custom-fonts', 'app-fonts', done);
 });

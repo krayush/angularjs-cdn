@@ -38,7 +38,7 @@ gulp.task('app-sass', ['clean-app-sass'], function () {
 });
 
 gulp.task('watch-app-sass', function () {
-    gulp.watch(config.app + '**/*.scss', ['tsc-app']);
+    return gulp.watch(config.app + '**/*.scss', ['tsc-app']);
 });
 
 gulp.task('external-css-prod', function () {

@@ -15,7 +15,7 @@ if (envConfig.ENV === envConfig.ENVS.DEV) {
     /* Start local CDN server */
     gulp.task('start-dev-server', function() {
         dashboard.show();
-        runSequence(['watch-assets-sass', 'watch-ts', 'watch-html', 'watch-app-sass'], function() {
+        return runSequence(['watch-assets-sass', 'watch-ts', 'watch-html', 'watch-app-sass'], function() {
             startBrowserSync(config.browserSync.dev);
         });
     });

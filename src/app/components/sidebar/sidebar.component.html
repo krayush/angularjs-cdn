@@ -1,0 +1,15 @@
+<div class="olp-sidebar">
+    <nav class="olp-nav">
+        <ul>
+            <li *ngFor="let route of routesInfo" class="sidemenu_item {{ route.selected ? 'active' : '' }}">
+                <a class="menu_item">
+                    <div class="icon icon-{{route.id}}" aria-hidden="true"></div>
+                    <div class="icon-label">{{route.label}}</div>
+                </a>
+                {{ route.displayName }}
+            </li>
+        </ul>
+    </nav>
+    <div id="navigation_box" style="display: none">
+    </div>
+</div>

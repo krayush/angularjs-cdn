@@ -1,5 +1,21 @@
-<div>
-    <h1>{{title}}</h1>
+<div id="app-container">
+    <header id="app-header" class="app-header narrow-header">
+        <div spamjs-view mdodule="olp.header" id="app-header-view"></div>
+    </header>
+    <aside id="app-sidebar" class="app-sidebar narrow-sidebar">
+        <sidebar></sidebar>
+    </aside>
+    <i class="go-full-screen fa fa-expand"></i>
+    <div moduless="olp.main"></div>
+</div>
+
+<input type="checkbox" id="chat-open-close" hidden/>
+<label for="chat-open-close" class="chat-button" hidden>
+    <i class="fa fa-comments" aria-hidden="true"></i>
+    <i class="fa fa-times" aria-hidden="true"></i>
+    <div class='new_msg_alert' hidden>1<sup>+</sup></div>
+</label>
+<div class="chat-window">
 </div>
 <div>
     <a [routerLink]="['/dashboard']">HOME</a>
@@ -7,5 +23,3 @@
     <a [routerLink]="['/events']">EVENTS</a>
 </div>
 <router-outlet></router-outlet>
-
-<router-outlet name="popup"></router-outlet>

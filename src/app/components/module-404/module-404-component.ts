@@ -4,6 +4,6 @@ import { Component } from '@angular/core';
     template: "NOTHING FOUND"
 })
 
-export class ModuleNotFoundComponent {
+export class Module404Component {
 
 }

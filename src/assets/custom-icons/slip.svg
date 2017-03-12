@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 512 512">
+  <g>
+    <g>
+      <path d="M340.3,107.2V11.5H170.7v95.7H90.6v393.2h330.8V107.2H340.3z M191.5,31.3h130v161.2h-130V31.3z M401.6,480.7H110.4V127    h60.3v65.5h-23.9v19.8h218.5v-19.8h-25V127h61.4V480.7z"/>
+      <rect width="40.6" x="153" y="268.5" height="19.8"/>
+      <rect width="40.6" x="236.2" y="268.5" height="19.8"/>
+      <rect width="40.6" x="319.5" y="268.5" height="19.8"/>
+      <rect width="40.6" x="153" y="339.2" height="19.8"/>
+      <rect width="40.6" x="236.2" y="339.2" height="19.8"/>
+      <rect width="40.6" x="319.5" y="339.2" height="19.8"/>
+      <rect width="40.6" x="153" y="408.9" height="19.8"/>
+      <rect width="40.6" x="236.2" y="408.9" height="19.8"/>
+      <rect width="40.6" x="319.5" y="408.9" height="19.8"/>
+      <rect width="66.6" x="222.7" y="63.6" height="19.8"/>
+      <rect width="66.6" x="222.7" y="120.8" height="19.8"/>
+    </g>
+  </g>
+</svg>

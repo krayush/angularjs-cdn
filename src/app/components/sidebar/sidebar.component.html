@@ -3,21 +3,38 @@
         <ul>
             <li *ngFor="let route of routesInfo"
                 class="sidemenu_item {{ route.selected ? 'active' : '' }}">
-                <template [ngIf]="!route.hidden">
-                    <a class="menu_item">
-                        <div class="icon icon-{{route.id}}" aria-hidden="true"></div>
-                        <div class="icon-label">{{route.label}}</div>
-                    </a>
-                    <div class="submenu" *ngIf="route.children && route.children.length > 0">
-                        <div class="submenu_title">{{route.displayName}}</div>
-                        <div class="submenu_item_wrapper">
-
-                        </div>
+                <a class="menu_item" (click)="loadBaseModule(route)">
+                    <div class="icon icon-{{route.icon}}" aria-hidden="true"></div>
+                    <div class="icon-label">{{route.label}}</div>
+                </a>
+                <div class="submenu" *ngIf="route.sections">
+                    <div class="submenu_title">{{route.label}}</div>
+                    <div class="submenu_item_wrapper">
+                        <template *ngFor="let section of route.sections">
+                            <div class="col50">
+                                <template *ngIf="section.moduleId">
+                                    <div class="col50">
+                                        <a class="submenu_links {{ section.config.selected ? 'active' : ''}}"
+                                           [routerLink]="['/' + section.config.path]">
+                                            {{section.config.displayName}}
+                                        </a>
+                                    </div>
+                                </template>
+                                <template *ngIf="!section.moduleId">
+                                    <span class="section_heading">{{section.label}}</span>
+                                    <div *ngFor="let tab of section.tabs">
+                                        <a class="submenu_links {{ tab.config.selected ? 'active' : ''}}"
+                                           [routerLink]="['/' + tab.config.path]">
+                                            {{tab.label}}
+                                        </a>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
                     </div>
-                </template>
+                </div>
             </li>
         </ul>
     </nav>
-    <div id="navigation_box" style="display: none">
-    </div>
+    <div id="navigation_box"></div>
 </div>

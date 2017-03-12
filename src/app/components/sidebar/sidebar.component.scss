@@ -85,8 +85,9 @@
         opacity:1;
         transition:opacity $global-transition-val;
     }
-    .submenu{
+    .submenu {
         display: none;
+        visibility: hidden;
     }
     &:hover{
         >.submenu{

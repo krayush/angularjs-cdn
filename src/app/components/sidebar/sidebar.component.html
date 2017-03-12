@@ -1,12 +1,20 @@
 <div class="olp-sidebar">
     <nav class="olp-nav">
         <ul>
-            <li *ngFor="let route of routesInfo" class="sidemenu_item {{ route.selected ? 'active' : '' }}">
-                <a class="menu_item">
-                    <div class="icon icon-{{route.id}}" aria-hidden="true"></div>
-                    <div class="icon-label">{{route.label}}</div>
-                </a>
-                {{ route.displayName }}
+            <li *ngFor="let route of routesInfo"
+                class="sidemenu_item {{ route.selected ? 'active' : '' }}">
+                <template [ngIf]="!route.hidden">
+                    <a class="menu_item">
+                        <div class="icon icon-{{route.id}}" aria-hidden="true"></div>
+                        <div class="icon-label">{{route.label}}</div>
+                    </a>
+                    <div class="submenu" *ngIf="route.children && route.children.length > 0">
+                        <div class="submenu_title">{{route.displayName}}</div>
+                        <div class="submenu_item_wrapper">
+
+                        </div>
+                    </div>
+                </template>
             </li>
         </ul>
     </nav>

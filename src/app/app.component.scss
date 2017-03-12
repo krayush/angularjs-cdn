@@ -1,7 +1,33 @@
-li {
-    font-size: large;
-    panel-heading {
-        font-size: x-large;
+@import "../assets/styles/variables";
+.app-container{
+    display:block;
+    width:100%;
+    height:100%;
+}
+.app-sidebar{
+    width: 200px;
+    background: #2A3F54;
+    height: calc(100% - #{$header-height});
+    float: left;
+    position: relative;
+    transition: all $global-transition-val;
+    z-index: 3;
+    left:0;
+    &.narrow-sidebar{
+        width:54px;
     }
 }
-
+.app-container{
+    width: calc(100% - 200px);
+    float: right;
+    transition:width $global-transition-val;
+    height: calc(100% - 50px);
+}
+.app-breadcrumb{
+    width: calc(100% - 200px);
+    float: left;
+    border-bottom: 1px solid #eaeaea;
+    border-left: 1px solid #eaeaea;
+    background-color: $white;
+    height: 30px;
+}

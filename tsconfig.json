@@ -8,7 +8,6 @@
         "allowSyntheticDefaultImports": true,
         "sourceMap": true,
         "noEmit": false,
-        "noEmitHelpers": true,
         "importHelpers": false,
         "strictNullChecks": false,
         "lib": [

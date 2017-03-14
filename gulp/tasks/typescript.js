@@ -45,7 +45,7 @@ function compileTs(files) {
     .pipe(inlineNg2Template({
         useRelativePaths: true,
         customFilePath: function(ext, file) {
-            if(ext[0] === "scss") {
+            if(ext[0] === "scss" || ext[0] === ".scss") {
                 file = file.split("scss").join("css");
             }
             return file;

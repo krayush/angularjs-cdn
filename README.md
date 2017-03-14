@@ -24,19 +24,19 @@ You need to have [Node.js and npm](https://nodejs.org/en/)
 
 
 ### Installation
-Install Dependency Checker (Optional)
+* Install Dependency Checker (Optional)
 ```bash
 npm install -g depcheck
 ```
-Install Gulp client
+* Install Gulp client
 ```bash
 npm install --global gulp-cli
 ```
-Go to the starter directory and install the packages:
+* Go to the starter directory and install the packages (using npm):
 ```bash
 npm install
 ```
-or 
+* Go to the starter directory and install the packages (using yarn): (Optional)
 ```bash
 yarn
 ```

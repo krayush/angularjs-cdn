@@ -13,13 +13,14 @@ Angular 2 boilerplate with ability to
 * [Browsersync](https://www.browsersync.io/) for development server & reload capability
 * [SystemJS](https://github.com/systemjs/systemjs) for module loader
 * [SystemJS Builder](https://github.com/systemjs/builder)
-
+* [Yarn](https://www.npmjs.com/package/yarn) for installing dependencies with caching
 
 ### Prerequisites
 You need to have [Node.js and npm](https://nodejs.org/en/)
 - Support Node v4 - latest
 - Support npm v3 - latest
-[Global Gulp CLI](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
+- Gulp CLI [Gulp CLI](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
+- Yarn (Optional) using **npm install -g yarn**
 
 
 ### Installation
@@ -34,6 +35,10 @@ npm install --global gulp-cli
 Go to the starter directory and install the packages:
 ```bash
 npm install
+```
+or 
+```bash
+yarn
 ```
 
 ### Generate Build

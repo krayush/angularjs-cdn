@@ -43,6 +43,7 @@
         "require-dir": "~0.3.1",
         "rxjs": "5.0.3",
         "systemjs": "^0.19.42",
+        "tslib": "^1.6.0",
         "tslint": "~4.5.1",
         "typescript": "~2.1.5",
         "yargs": "^6.6.0",

@@ -153,3 +153,8 @@ For lazy loading modules, follow these steps:
      'build/js/events.bundle.js': ['app/components/events/events.module.js']
  };
 ```
+
+### Generating documentation
+```bash
+ npm run doc
+```
